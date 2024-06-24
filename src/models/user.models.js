@@ -42,7 +42,6 @@ const UserSchema = new mongoose.Schema(
     },
     refreshToken: {
       type: String,
-      required: true,
     },
   },
   {
