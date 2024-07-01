@@ -5,6 +5,7 @@ import { logoutUser } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { VerifyJWT } from "../middlewares/auth.middleware.js";
 import { refreshAccessToken } from "../controllers/user.controller.js";
+import { updateUserAvatar } from "../controllers/user.controller.js";
 const router = Router();
 
 router.route("/register").post(
@@ -28,5 +29,7 @@ router.route("/login").post(loginUser);
 router.route("/logout").post(VerifyJWT, logoutUser);
 
 router.route("/refreshtoken").post(refreshAccessToken);
+
+router.route("/UpdateAvatar").post(VerifyJWT, upload.single("avatar"), updateUserAvatar);
 
 export default router;
